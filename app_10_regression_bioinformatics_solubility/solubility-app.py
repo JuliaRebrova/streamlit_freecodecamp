@@ -60,7 +60,7 @@ def generate(smiles, verbose=False):
 # Page Title
 ######################
 
-image = Image.open('solubility-logo.jpg')
+image = Image.open('app_10_regression_bioinformatics_solubility/solubility-logo.jpg')
 
 st.image(image, use_column_width=True)
 
