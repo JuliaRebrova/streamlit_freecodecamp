@@ -7,7 +7,7 @@ from PIL import Image
 # Page Title
 ######################
 
-image = Image.open('dna-logo.jpg')
+image = Image.open('app_2_simple_bioinformatics_dna/dna-logo.jpg')
 
 st.image(image, use_column_width=True)
 
