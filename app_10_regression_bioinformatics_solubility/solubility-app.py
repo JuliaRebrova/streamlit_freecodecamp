@@ -6,7 +6,7 @@ import pandas as pd
 import streamlit as st
 import pickle
 from PIL import Image
-from rdkit import Chem
+from rdkit import Chem  # conda install rdkit
 from rdkit.Chem import Descriptors
 
 ######################

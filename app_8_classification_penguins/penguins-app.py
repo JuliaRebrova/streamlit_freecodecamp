@@ -71,6 +71,8 @@ load_clf = pickle.load(open('penguins_clf.pkl', 'rb'))
 prediction = load_clf.predict(df)
 prediction_proba = load_clf.predict_proba(df)
 
+st.subheader('Class labels and their corresponding index number')   # Добавлен блок, чтобы было понятно, к чему относится prediction_proba
+st.write(pd.Series(['Adelie','Chinstrap','Gentoo']))
 
 st.subheader('Prediction')
 penguins_species = np.array(['Adelie','Chinstrap','Gentoo'])

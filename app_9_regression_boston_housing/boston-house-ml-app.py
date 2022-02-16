@@ -22,19 +22,19 @@ Y = pd.DataFrame(boston.target, columns=["MEDV"])
 st.sidebar.header('Specify Input Parameters')
 
 def user_input_features():
-    CRIM = st.sidebar.slider('CRIM', X.CRIM.min(), X.CRIM.max(), X.CRIM.mean())
-    ZN = st.sidebar.slider('ZN', X.ZN.min(), X.ZN.max(), X.ZN.mean())
-    INDUS = st.sidebar.slider('INDUS', X.INDUS.min(), X.INDUS.max(), X.INDUS.mean())
-    CHAS = st.sidebar.slider('CHAS', X.CHAS.min(), X.CHAS.max(), X.CHAS.mean())
-    NOX = st.sidebar.slider('NOX', X.NOX.min(), X.NOX.max(), X.NOX.mean())
-    RM = st.sidebar.slider('RM', X.RM.min(), X.RM.max(), X.RM.mean())
-    AGE = st.sidebar.slider('AGE', X.AGE.min(), X.AGE.max(), X.AGE.mean())
-    DIS = st.sidebar.slider('DIS', X.DIS.min(), X.DIS.max(), X.DIS.mean())
-    RAD = st.sidebar.slider('RAD', X.RAD.min(), X.RAD.max(), X.RAD.mean())
-    TAX = st.sidebar.slider('TAX', X.TAX.min(), X.TAX.max(), X.TAX.mean())
-    PTRATIO = st.sidebar.slider('PTRATIO', X.PTRATIO.min(), X.PTRATIO.max(), X.PTRATIO.mean())
-    B = st.sidebar.slider('B', X.B.min(), X.B.max(), X.B.mean())
-    LSTAT = st.sidebar.slider('LSTAT', X.LSTAT.min(), X.LSTAT.max(), X.LSTAT.mean())
+    CRIM = st.sidebar.slider('CRIM', X.CRIM.min(), X.CRIM.max(), value=float(X['CRIM'][0]))
+    ZN = st.sidebar.slider('ZN', X.ZN.min(), X.ZN.max(), value=float(X['ZN'][0]))
+    INDUS = st.sidebar.slider('INDUS', X.INDUS.min(), X.INDUS.max(),  value=float(X['INDUS'][0]))
+    CHAS = st.sidebar.slider('CHAS', X.CHAS.min(), X.CHAS.max(), value=float(X['CHAS'][0]))
+    NOX = st.sidebar.slider('NOX', X.NOX.min(), X.NOX.max(),  value=float(X['NOX'][0]))
+    RM = st.sidebar.slider('RM', X.RM.min(), X.RM.max(),  value=float(X['RM'][0]))
+    AGE = st.sidebar.slider('AGE', X.AGE.min(), X.AGE.max(),  value=float(X['AGE'][0]))
+    DIS = st.sidebar.slider('DIS', X.DIS.min(), X.DIS.max(),  value=float(X['DIS'][0]))
+    RAD = st.sidebar.slider('RAD', X.RAD.min(), X.RAD.max(),  value=float(X['RAD'][0]))
+    TAX = st.sidebar.slider('TAX', X.TAX.min(), X.TAX.max(),  value=float(X['TAX'][0]))
+    PTRATIO = st.sidebar.slider('PTRATIO', X.PTRATIO.min(), X.PTRATIO.max(), value=float(X['PTRATIO'][0]))
+    B = st.sidebar.slider('B', X.B.min(), X.B.max(),  value=float(X['B'][0]))
+    LSTAT = st.sidebar.slider('LSTAT', X.LSTAT.min(), X.LSTAT.max(),  value=float(X['LSTAT'][0]))
     data = {'CRIM': CRIM,
             'ZN': ZN,
             'INDUS': INDUS,
@@ -74,6 +74,8 @@ st.write('---')
 # https://github.com/slundberg/shap
 explainer = shap.TreeExplainer(model)
 shap_values = explainer.shap_values(X)
+
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 st.header('Feature Importance')
 plt.title('Feature importance based on SHAP values')

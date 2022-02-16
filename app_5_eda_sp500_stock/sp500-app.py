@@ -75,8 +75,9 @@ def price_plot(symbol):
   return st.pyplot()
 
 num_company = st.sidebar.slider('Number of Companies', 1, 5)
+st.set_option('deprecation.showPyplotGlobalUse', False)  # удаляет warnings
 
 if st.button('Show Plots'):
     st.header('Stock Closing Price')
-    for i in list(df_selected_sector.Symbol)[:num_company]:
+    for i in list(df_selected_sector['Symbol'])[:num_company]: # изменено с f_selected_sector.Symbol
         price_plot(i)
