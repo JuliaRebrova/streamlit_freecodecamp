@@ -20,7 +20,7 @@ st.set_page_config(layout="wide")
 # ---------------------------------#
 # Title
 
-image = Image.open("logo.jpg")
+image = Image.open("app_6_eda_cryptocurrency/logo.jpg")
 
 st.image(image, width=500)
 
